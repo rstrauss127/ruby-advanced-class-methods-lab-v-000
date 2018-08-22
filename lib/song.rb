@@ -43,4 +43,13 @@ class Song
   def self.alphabetical
     self.all.sort_by {|a| a.name}
   end
+
+  def self.new_from_filename(title)
+    holder = title.split("-")
+  song = self.create
+    song.name = holder[1].gsub(".mp3", "")
+    song.artist_name = holder[0]
+    song
+  end
+
 end
